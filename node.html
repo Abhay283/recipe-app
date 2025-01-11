@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up & Sign In UI</title>
+  <style>
+    /* Body and Background Styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(45deg, #ff6ec7, #ff9a8b); /* Gradient background */
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Card Container for Forms */
+    .form-container {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    /* Heading */
+    h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    /* Input Group Styling */
+    .input-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .input-group label {
+      font-size: 14px;
+      color: #555;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .input-group input:focus {
+      border-color: #ff6ec7;
+    }
+
+    /* Button Styling */
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: #ff6ec7;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff9a8b;
+    }
+
+    /* Footer Section (Links to switch forms) */
+    p {
+      font-size: 14px;
+      color: #777;
+    }
+
+    p a {
+      color: #ff6ec7;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    p a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 480px) {
+      .form-container {
+        padding: 30px;
+        width: 90%;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      button {
+        font-size: 16px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Form Container (Initially Sign Up Form) -->
+  <div class="form-container" id="form-container">
+
+    <!-- Sign Up Form -->
+    <div id="signup-form">
+      <h2>Create an Account</h2>
+      <form id="signUpForm" action="javascript:void(0);" onsubmit="handleSignUp(event)">
+        <div class="input-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+        <button type="submit">Sign Up</button>
+        <p>Already have an account? <a href="javascript:void(0);" onclick="showSignIn()">Sign In</a></p>
+      </form>
+    </div>
+
+    <!-- Sign In Form (Initially Hidden) -->
+    <div id="signin-form" style="display: none;">
+      <h2>Sign In</h2>
+      <form id="signInForm" action="javascript:void(0);" onsubmit="handleSignIn(event)">
+        <div class="input-group">
+          <label for="signin-email">Email</label>
+          <input type="email" id="signin-email" name="signin-email" placeholder="Enter your email" required>
+        </div>
+        <div class="input-group">
+          <label for="signin-password">Password</label>
+          <input type="password" id="signin-password" name="signin-password" placeholder="Enter your password" required>
+        </div>
+        <button type="submit">Sign In</button>
+        <p>Don't have an account? <a href="javascript:void(0);" onclick="showSignUp()">Create one</a></p>
+      </form>
+    </div>
+
+  </div>
+
+  <script>
+    // Switch to Sign In Form
+    function showSignIn() {
+      document.getElementById('signup-form').style.display = 'none'; // Hide Sign Up form
+      document.getElementById('signin-form').style.display = 'block'; // Show Sign In form
+    }
+
+    // Switch to Sign Up Form
+    function showSignUp() {
+      document.getElementById('signin-form').style.display = 'none'; // Hide Sign In form
+      document.getElementById('signup-form').style.display = 'block'; // Show Sign Up form
+    }
+
+    // Handle Sign Up (Placeholder)
+    function handleSignUp(event) {
+      event.preventDefault();
+      alert('Sign Up successful!');
+      showSignIn(); // Switch to Sign In form after Sign Up
+    }
+
+    // Handle Sign In (Placeholder)
+    function handleSignIn(event) {
+      event.preventDefault();
+      alert('Sign In successful!');
+      window.location.href="index.html";
+      // Redirect to another page or handle the sign in logic here
+    }
+  </script>
+
+</body>
+</html>
